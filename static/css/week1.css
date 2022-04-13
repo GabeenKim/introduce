@@ -158,9 +158,6 @@ p,h2,h3,br{ font-family : 'Nanum Myeongjo', serif;}
         border: none;
         color: #fff;
     }
-    /* .scroll-top:hover {
-        cursor: pointer;
-    } */
 
 @media(max-width: 780px) {
 }
