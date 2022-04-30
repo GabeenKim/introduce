@@ -37,11 +37,6 @@ function change(){
     }
 }
 
-const content = "안녕하세요 김가빈입니다!"
-const text = document.getElementById("dynamic");
-let index=0;
-let txt="";
-
 function typing(){
     if(index < content.length){
         txt += content[index];
@@ -49,6 +44,12 @@ function typing(){
         index++;
     }
 }
+const content = "안녕하세요 김가빈입니다!"
+const text = document.getElementById("dynamic");
+let index=0;
+let txt="";
+
+setInterval(typing,120);
 
 function scrollTop(elem_id,duration) {
 	let target = document.getElementById(elem_id);
@@ -56,31 +57,25 @@ function scrollTop(elem_id,duration) {
 	target.addEventListener('click', function() {
 		let currentY = window.pageYOffset;                 //웹페이지에서 스크롤정보 받아오기
         let step;
-        if ( duration/currentY > 1 ){
+        if ( duration/currentY > 1 ){                      //이동하는 양. 거리 짧으면 10px씩 길면 100px
             step = 10;
         }
         else {
             step=100;
         }
-		let timeStep = duration/currentY * step;
+		let timeStep = duration/currentY * step;        
 		let intervalID = setInterval(scrollUp, timeStep);
 
 		function scrollUp(){
 			currentY = window.pageYOffset;
 			if(currentY === 0) {
-				clearInterval(intervalID);
+				clearInterval(intervalID);                  //즉시종료
 			} else {
-				scrollBy( 0, -step );
+				scrollBy( 0, -step );                       
 			}
 		}
 	});
 }
-
-
-
-
-
-setInterval(typing,120);
-
 scrollTop('scrollButton', 500);
+
 
